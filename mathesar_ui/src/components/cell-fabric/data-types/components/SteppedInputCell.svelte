@@ -45,7 +45,7 @@
         e.preventDefault();
         break;
       case 'Escape':
-        resetEditMode();
+        setModeToEdit();
         break;
       case 'Tab':
         resetEditMode();
