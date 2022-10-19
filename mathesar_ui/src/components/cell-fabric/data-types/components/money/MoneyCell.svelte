@@ -64,6 +64,7 @@
   {disabled}
   {formatValue}
   horizontalAlignment="right"
+  let:escKeydown
   let:handleInputBlur
   let:handleInputKeydown
   on:movementKeyDown
@@ -77,5 +78,6 @@
     {...formatterOptions}
     on:blur={handleInputBlur}
     on:keydown={handleInputKeydown}
+    on:keydown={(e)=>{escKeydown(e)}}
   />
 </SteppedInputCell>

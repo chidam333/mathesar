@@ -35,6 +35,7 @@
   multiLineTruncate={true}
   let:handleInputBlur
   let:handleInputKeydown
+  let:escKeydown
   on:movementKeyDown
   on:activate
   on:mouseenter
@@ -48,5 +49,6 @@
     on:blur={handleInputBlur}
     addNewLineOnEnterKeyCombinations={true}
     on:processedKeyDown={(e) => handleKeyDown(e.detail, handleInputKeydown)}
+    on:keydown={(e)=>{escKeydown(e)}}
   />
 </SteppedInputCell>

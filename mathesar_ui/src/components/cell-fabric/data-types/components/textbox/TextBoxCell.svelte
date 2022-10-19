@@ -21,6 +21,7 @@
   {disabled}
   let:handleInputBlur
   let:handleInputKeydown
+  let:escKeydown
   on:movementKeyDown
   on:activate
   on:mouseenter
@@ -33,5 +34,6 @@
     bind:value
     on:blur={handleInputBlur}
     on:keydown={handleInputKeydown}
+    on:keydown={(e)=>{escKeydown(e)}}
   />
 </SteppedInputCell>
