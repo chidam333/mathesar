@@ -87,6 +87,24 @@
         break;
     }
   }
+  let hasInitialValue = false
+  let typeOfTheValue = typeof value
+  let defaultValue = typeOfTheValue==="number" ? 0 : '';
+  console.log(defaultValue)
+  let initialValue = hasInitialValue===false && value!=undefined && value!=null ? value : defaultValue;
+  function escKeydown(e: KeyboardEvent){
+    hasInitialValue = true
+    if(e.key==='Escape'){
+      let typeNumber = typeof value;
+      value = typeNumber!=='number' && initialValue!==null && initialValue!==undefined ? initialValue : 0;
+    }
+    if(e.key==='Enter'){
+      initialValue = value!==undefined && value!=null ? value : defaultValue;
+    }
+    console.log("value :",value)
+    console.log("initialValue :",initialValue)
+    console.log("defaultValue :",defaultValue)
+  }
 
   function handleInputBlur() {
     dispatchUpdate();
@@ -108,7 +126,7 @@
   {horizontalAlignment}
 >
   {#if isEditMode}
-    <slot {handleInputBlur} {handleInputKeydown} />
+    <slot {handleInputBlur} {handleInputKeydown} {escKeydown} />
   {:else}
     <div
       class="content"
