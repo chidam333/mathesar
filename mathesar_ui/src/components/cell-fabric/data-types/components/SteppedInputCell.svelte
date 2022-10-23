@@ -87,23 +87,20 @@
         break;
     }
   }
-  let hasInitialValue = false
-  let typeOfTheValue = typeof value
-  let defaultValue = typeOfTheValue==="number" ? 0 : '';
-  console.log(defaultValue)
-  let initialValue = hasInitialValue===false && value!=undefined && value!=null ? value : defaultValue;
-  function escKeydown(e: KeyboardEvent){
-    hasInitialValue = true
-    if(e.key==='Escape'){
-      let typeNumber = typeof value;
-      value = typeNumber!=='number' && initialValue!==null && initialValue!==undefined ? initialValue : 0;
+  let hasInitialValue = false;
+  let initialValue = value;
+  function escKeydown(e: KeyboardEvent, defaultValue) {
+    hasInitialValue = true;
+    if (e.key === 'Escape') {
+      value =
+        initialValue !== null && initialValue !== undefined
+          ? initialValue
+          : defaultValue;
     }
-    if(e.key==='Enter'){
-      initialValue = value!==undefined && value!=null ? value : defaultValue;
+    if (e.key === 'Enter') {
+      initialValue =
+        value !== undefined && value != null ? value : defaultValue;
     }
-    console.log("value :",value)
-    console.log("initialValue :",initialValue)
-    console.log("defaultValue :",defaultValue)
   }
 
   function handleInputBlur() {
