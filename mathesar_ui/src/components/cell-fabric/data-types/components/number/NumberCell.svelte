@@ -69,6 +69,8 @@
     {...formatterOptions}
     on:blur={handleInputBlur}
     on:keydown={handleInputKeydown}
-    on:keydown={(e)=>{escKeydown(e)}}
+    on:keydown={(e) => {
+      escKeydown(e, 0);
+    }}
   />
 </SteppedInputCell>

@@ -49,6 +49,8 @@
     on:blur={handleInputBlur}
     addNewLineOnEnterKeyCombinations={true}
     on:processedKeyDown={(e) => handleKeyDown(e.detail, handleInputKeydown)}
-    on:keydown={(e)=>{escKeydown(e)}}
+    on:keydown={(e) => {
+      escKeydown(e, '');
+    }}
   />
 </SteppedInputCell>
